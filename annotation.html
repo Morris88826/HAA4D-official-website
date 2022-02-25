@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!--
+	Full Motion by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+  <head>
+    <title>
+      HAA4D: Few-Shot Human Atomic Action Recognition via 3D Spatio-Temporal
+      Skeletal Alignment
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body id="top">
+    <!-- Main -->
+
+    <div id="main">
+      <div class="inner">
+        <div>
+          <h1>Annotation Tool</h1>
+          <p>
+            To help expand the dataset to more actions and classes, we have
+            developed a simple interactive annotation tool that supports faster
+            user labeling. The annotation tool provides the end-to-end creation
+            of accurate 3D skeletons from 2D images. This page will show the
+            main functionalities of the annotation tool and how to set it up so
+            that we can easily create more distinct action classes through
+            crowdsourcing.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 2em;">
+          <h2>Get Started</h2>
+          <div style="display: flex">
+            <ol>
+              <li>
+                Follow the setup instruction in here to install the annotation
+                tool.
+              </li>
+              <li>
+                In the annotating page, (1) shows the annotating canvas. Users
+                can use mouse scroll and drag to move the frame into the wanted
+                position. Click [Reset Zoom] button on the right to go back to
+                the default.
+              </li>
+              <li>
+                To change the frame, use the bar below (2), or press (z) or (x)
+                on your keyboard to go to the prev/next frame. Scroll the bar
+                quickly for a video-like preview.
+              </li>
+              <li>
+                Users can press (3) to load preliminary prediction of the joints
+                from Alphapose. The predicted skeleton will be processed to
+                Evoskeleton format. If the alphapose information doesn't exist,
+                it will run the AlphaPose network to generate the info file
+                (make sure that your device has cuda).
+              </li>
+              <li>
+                To label, you can press [L] on your keyboard to start labeling
+                17 joints. You can also use your keyboard to label a single
+                joint. keys are [4],[5],[q-u], [a-j],[v]. You can use the image
+                on the right (4) for the guide.
+              </li>
+              <li>
+                The tool supports the linear interpolation method by click (5).
+                Users can simply select the two frames the way, and the tool
+                will perform interpolation for the joints' position in the
+                intermediate frame.
+              </li>
+              <li>
+                Users can monitor the generated 3D joints' position in (7)
+                real-time and correct the corresponding 2D position to increase
+                the accuracy.
+              </li>
+              <li>More information can also be found in here.</li>
+            </ol>
+            <img
+              src="images/annotation_tool.png"
+              alt=""
+              style="width: 40%; object-fit: contain; margin-left: 2em"
+            />
+          </div>
+        </div>
+
+        <div style="margin-bottom: 2em;">
+          <h2>Demo</h2>
+          <div>
+            <p>
+              Here we also provide a demo video for using the annotation tool.
+            </p>
+            <video controls style="width: 100%">
+              <source src="images/demo.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 2em;">
+          <h2>Further Improvements</h2>
+          <ul>
+            <li>
+              Working on the release a web version annotation tool so that users
+              don't need to setup locally.
+            </li>
+            <li>Introduce a better interpolation model.</li>
+          </ul>
+        </div>
+
+        <div style="margin-bottom: 2em">
+          <a
+            href="index.html"
+            class="button"
+            style="border-bottom: 0px; background: #7f92cf"
+            >Back</a
+          >
+        </div>
+        <!-- Boxes -->
+        <div class="thumbnails">
+          <div class="box">
+            <a href="dataset.html" class="image fit"
+              ><img src="images/dataset.png" alt=""
+            /></a>
+            <div class="inner">
+              <a href="dataset.html" class="button fit">Dataset</a>
+            </div>
+          </div>
+
+          <div class="box">
+            <a href="others.html" class="image fit"
+              ><img src="images/others.png" alt=""
+            /></a>
+            <div class="inner">
+              <a
+                href="others.html"
+                class="button style3 fit"
+                data-poptrox="youtube,800x400"
+                >Others</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="inner">
+        <h2>Citation</h2>
+        <pre style="text-align: left; overflow: scroll">
+@misc{tseng2022haa4d,
+	title={HAA4D: Few-Shot Human Atomic Action Recognition via 3D Spatio-Temporal Skeletal Alignment}, 
+	author={Mu-Ruei Tseng and Abhishek Gupta and Chi-Keung Tang and Yu-Wing Tai},
+	year={2022},
+	eprint={2202.07308},
+	archivePrefix={arXiv},
+	primaryClass={cs.CV}
+}
+        </pre>
+
+        <ul class="icons">
+          <li>
+            <a href="#" class="icon fa-github"
+              ><span class="label">Twitter</span></a
+            >
+          </li>
+          <li>
+            <a href="#" class="icon fa-envelope"
+              ><span class="label">Email</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.poptrox.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

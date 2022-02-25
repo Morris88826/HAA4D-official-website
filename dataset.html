@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!--
+	Full Motion by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+  <head>
+    <title>
+      HAA4D: Few-Shot Human Atomic Action Recognition via 3D Spatio-Temporal
+      Skeletal Alignment
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/dataset.css" />
+  </head>
+  <body id="top">
+    <!-- Main -->
+
+    <div id="main">
+      <div class="inner">
+        <div style="margin-bottom: 2em;">
+          <h1>HAA4D Dataset</h1>
+          <p>
+            HAA4D is a challenging human action recognition 3D+T dataset that is
+            built on top of the HAA500 dataset. HAA500 is a curated video
+            dataset consisting of atomic hu-man action video clips, which
+            provides diversified poseswith variation and examples closer to
+            real-life activities. Similar to Kinetics, the original dataset
+            provides solely in-the-wild RGB videos. However, instead of using
+            existing 2D joints prediction networks, which often produce
+            inaccurate results when joints are hidden or not present, HAA4D
+            consists of hand-labeled 2D human skeletons position. These accurate
+            features can not only increase theprecision of the 3D ground-truth
+            skeleton but also benefit training for new joints prediction models
+            that can reasonably hallucinate out-of-frame joints. The labeled 2D
+            joints will then be raised to 3D using EvoSkeleton. HAA4D is thus
+            named with its accurate per-frame 3D spatial andtemporal skeletons
+            for human atomic actions. The dataset can be divided into two
+            categories: primary classes and additional classes. Primary classes
+            have twenty samples per class, while additional classes contain two
+            examples per class.
+          </p>
+          <div style="text-align: center;">
+            <img src="images/topology.png" alt="" style="width: 50%" />
+          </div>
+        </div>
+
+        <div style="margin-bottom: 2em;">
+          <h2>1. Action Classes</h2>
+          <h3>1.1 Primary Classes (155)</h3>
+          <h3>1.2 Additional Classes (145)</h3>
+        </div>
+
+        <div style="margin-bottom: 2em;">
+          <h2>2. Dataset Details</h2>
+          <h3>2.1 Comparison with other pubic datasets</h3>
+          <h3>2.2 Dataset Summary</h3>
+          <h3>2.3 Evaluation Benchmark</h3>
+        </div>
+
+        <div style="margin-bottom: 2em;">
+          <h2>3. Examples</h2>
+          <p>
+            Here we provide some examples in our HAA4D dataset. The image on the
+            left shows the 8-frame sampling from different actions. We use our
+            global alignment model (GAM) to rectify the input skeletons and
+            bring them to the same coordinate system that all actions start at
+            facing the negative z-direction. Some samples of globally aligned
+            skeletons can be seen on the right. More samples can be access in
+            here.
+          </p>
+          <div style="display: flex; margin-bottom: 2em">
+            <img
+              src="images/dataset_img1.png"
+              style="width: 50%; border-radius: 4px"
+            />
+            <img
+              src="images/dataset_img2.png"
+              style="width: 50%; margin-left: 10px; border-radius: 4px"
+            />
+          </div>
+        </div>
+
+        <div style="margin-bottom: 2em">
+          <a href="index.html" class="button" style="border-bottom: 0px"
+            >Back</a
+          >
+        </div>
+        <!-- Boxes -->
+        <div class="thumbnails">
+          <div class="box">
+            <a href="annotation.html" class="image fit"
+              ><img src="images/annotation.png" alt=""
+            /></a>
+            <div class="inner">
+              <a
+                href="annotation.html"
+                class="button style2 fit"
+                data-poptrox="youtube,800x400"
+                >Annotation Tool</a
+              >
+            </div>
+          </div>
+
+          <div class="box">
+            <a href="others.html" class="image fit"
+              ><img src="images/others.png" alt=""
+            /></a>
+            <div class="inner">
+              <a
+                href="others.html"
+                class="button style3 fit"
+                data-poptrox="youtube,800x400"
+                >Others</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="inner">
+        <h2>Citation</h2>
+        <pre style="text-align: left; overflow: scroll">
+@misc{tseng2022haa4d,
+	title={HAA4D: Few-Shot Human Atomic Action Recognition via 3D Spatio-Temporal Skeletal Alignment}, 
+	author={Mu-Ruei Tseng and Abhishek Gupta and Chi-Keung Tang and Yu-Wing Tai},
+	year={2022},
+	eprint={2202.07308},
+	archivePrefix={arXiv},
+	primaryClass={cs.CV}
+}
+        </pre>
+
+        <ul class="icons">
+          <li>
+            <a href="#" class="icon fa-github"
+              ><span class="label">Twitter</span></a
+            >
+          </li>
+          <li>
+            <a href="#" class="icon fa-envelope"
+              ><span class="label">Email</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.poptrox.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

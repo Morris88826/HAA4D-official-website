@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!--
+	Full Motion by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+  <head>
+    <title>
+      HAA4D: Few-Shot Human Atomic Action Recognition via 3D Spatio-Temporal
+      Skeletal Alignment
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/dataset.css" />
+  </head>
+  <body id="top">
+    <!-- Main -->
+
+    <div id="main">
+      <div class="inner">
+        <div style="margin-bottom: 2em">
+          <h2>Downloads</h2>
+          <p>Paper - <a href="">Download</a></p>
+          <p>HAA4D V1.0 - <a href="">Download</a></p>
+          <p>Detailed information of HAA4D - <a href="">Download</a></p>
+        </div>
+
+        <div style="margin-bottom: 2em">
+          <h2>Training Configuration</h2>
+          <p>
+            For training the global alignment network, we perform data
+            augmentation by sampling camera views from a 3-frequency subdivision
+            icosahedron. This gives us 92 additional training samples per
+            example. Since there are 400 examples in HAA4D that are provided
+            with globally aligned skeletons, with the help of data augmentation,
+            we have 36,800 examples of training our global alignment network. We
+            split all the data into training and validated with a ratio of 0.8
+            under two settings: cross-views and cross-actions. We select 73
+            views on the icosahedron sphere for cross-views and test the rest 19
+            views to ensure that our network generates predictions decently
+            while encountering unseen views. We also trained our network on
+            cross-views, i.e., 32 out of the 40 classes, to secure that the
+            model is used to generalize different actions. Here are our training
+            environment and configurations in more details:
+          </p>
+
+          <ul>
+            <li><b>GPU:</b> GeForce GTX TITAN X and GeForce GTX 1080 Ti</li>
+            <li><b>Epochs:</b> 300</li>
+            <li><b>Batch size:</b> 64</li>
+            <li>
+              <b>Optimizer:</b> Adam (starting learning rate: 1e-4, weight decay
+              rate: 1e-6)
+            </li>
+            <li>
+              <b>Loss weight:</b> 10:1 (rotation loss : reconstruction loss)
+            </li>
+          </ul>
+        </div>
+
+        <div style="margin-bottom: 2em">
+          <h2>Limitations</h2>
+          <ul>
+            <li>
+              Our dataset contains only a few samples per class, which is
+              intended for enhancing its scalability and extension (e.g. 1 for
+              train and 1 for test, see our 5-way 1-shot experiments in main
+              paper), as unlike the 2D counterparts, HAA4D's 3D+T skeletons have
+              more degree of freedom making meaningful data augmentation easy
+              for training on large datasets. In our case, we sample the 3D
+              skeletons from different viewpoints and rotate the skeletons
+              accordingly. We can also use mirroring or combining skeleton
+              samples in the same class to introduce more variation to the
+              dataset. Unlike 2D skeletons that can only have one rotation
+              parameter, the properties of 3D skeletons help better perform data
+              augmentation without breaking the original skeleton structure.
+            </li>
+            <li>
+              Our few-shot skeleton-based action recognition architecture
+              currently supports only single-person actions. To accommodate
+              actions involving more than one person, we can use a similar
+              technique as ST-GCN, which utilizes the two skeletons with the
+              highest confidence score in the sequences. For actions that have
+              only one subject, we assume them to be all zeros. With this, we
+              can modify our architecture so that instead of having the shape of
+              (n_ways, n_shots, n_segments, n_encodings) for explicit skeletons
+              encodings, we add one additional dimension so that the skeletons
+              are in the shape of (n_ways, n_shots, 2, n_segments, n_encodings).
+              We then calculate the distance, respectively. Since there are four
+              skeleton sequences, assuming q_s1, q_s2, s_s1, and s_s2 all with
+              the shape of (1, n_segments, n_encodings), we use the minimum
+              distance between the possible combination {d(q_s1,s_s1) +
+              d(q_s2,s_s2), d(q_s1,s_s2) + d(q_s2,s_s1)}. Therefore, we can make
+              this adjustment for multi-person interaction, and the rest of the
+              architecture can remain unchanged.
+            </li>
+          </ul>
+        </div>
+
+        <div style="margin-bottom: 2em">
+          <h2>Contact</h2>
+          <p>
+            Please email Mu-Ruei Tseng (<a>morris88826@gmail.com</a>) for any questions.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 2em">
+          <a
+            href="index.html"
+            class="button"
+            style="border-bottom: 0px; background: #9d7ed0"
+            >Back</a
+          >
+        </div>
+        <!-- Boxes -->
+        <div class="thumbnails">
+          <div class="box">
+            <a href="dataset.html" class="image fit"
+              ><img src="images/dataset.png" alt=""
+            /></a>
+            <div class="inner">
+              <a href="dataset.html" class="button fit">Dataset</a>
+            </div>
+          </div>
+          <div class="box">
+            <a href="annotation.html" class="image fit"
+              ><img src="images/annotation.png" alt=""
+            /></a>
+            <div class="inner">
+              <a
+                href="annotation.html"
+                class="button style2 fit"
+                data-poptrox="youtube,800x400"
+                >Annotation Tool</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="inner">
+        <h2>Citation</h2>
+        <pre style="text-align: left; overflow: scroll">
+@misc{tseng2022haa4d,
+	title={HAA4D: Few-Shot Human Atomic Action Recognition via 3D Spatio-Temporal Skeletal Alignment}, 
+	author={Mu-Ruei Tseng and Abhishek Gupta and Chi-Keung Tang and Yu-Wing Tai},
+	year={2022},
+	eprint={2202.07308},
+	archivePrefix={arXiv},
+	primaryClass={cs.CV}
+}
+        </pre>
+
+        <ul class="icons">
+          <li>
+            <a href="#" class="icon fa-github"
+              ><span class="label">Twitter</span></a
+            >
+          </li>
+          <li>
+            <a href="#" class="icon fa-envelope"
+              ><span class="label">Email</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.poptrox.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

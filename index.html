@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!--
+	Full Motion by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+  <head>
+    <title>
+      HAA4D: Few-Shot Human Atomic Action Recognition via 3D Spatio-Temporal
+      Skeletal Alignment
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body id="top">
+    <!-- Banner -->
+    <!--
+				To use a video as your background, set data-video to the name of your video without
+				its extension (eg. images/banner). Your video must be available in both .mp4 and .webm
+				formats to work correctly.
+			-->
+    <section id="banner">
+      <div class="inner">
+        <header>
+          <h1>
+            HAA4D: Few-Shot Human Atomic Action Recognition via 3D
+            Spatio-Temporal Skeletal Alignment
+          </h1>
+          <p>Mu-Ruei Tseng, Abhishek Gupta, Chi-Keung Tang, Yu-Wing Tai</p>
+        </header>
+
+        <div style="margin-bottom: 2em">
+          <a href="images/paper.pdf" class="button" style="border-bottom: 0px; background: #F2B9AC;"
+            >Paper</a
+          >
+          <a
+            href="https://youtu.be/s6zR2T9vn2c"
+            style="margin-left: 50px; border-bottom: 0px; background: #F2B9AC;"
+            class="button"
+            >Download HAA4D V1.0</a
+          >
+        </div>
+        <a href="#main" class="more">Learn More</a>
+      </div>
+    </section>
+
+    <!-- Main -->
+    <div id="main">
+      <div class="inner">
+        <div>
+          <h1>Abstract</h1>
+          <p>
+            Human actions involve complex pose variations, and their 2D
+            projections can be highly ambiguous. Thus 3D Spatio-temporal or 4D
+            (i.e., 3D+T) human skeletons, which are <b>photometric and viewpoint
+            invariant</b>, are an excellent alternative to 2D+T skeletons/pixels to
+            improve action recognition accuracy. This paper proposes a <b>new 4D
+            dataset</b>, HAA4D, consisting of more than <b>3,300 RGB videos</b> in <b>300
+            human atomic action classes</b>. HAA4D is <b>clean</b>, <b>diverse</b>, <b>class-balanced</b>
+            where each class is viewpoint-balanced with the use of 4D skeletons,
+            in which as few as one 4D skeleton per class is sufficient for
+            training a deep recognition model. Further, the choice of atomic
+            actions makes annotation even easier because each video clip lasts
+            for only a few seconds. All training and testing 3D skeletons in
+            HAA4D are <b>globally aligned</b>, using a deep alignment model to the same
+            global space, making each skeleton face the <b>negative z-direction</b>.
+            Such alignment makes matching skeletons more stable by <b>reducing
+            intraclass variations</b> and thus with fewer training samples per class
+            needed for action recognition. Given the high diversity and skeletal
+            alignment in HAA4D, we construct the first baseline <b>few-shot 4D
+            human atomic action recognition network</b> without bells and whistles,
+            which produces comparable or higher performance than relevant
+            state-of-the-art techniques relying on embedded space encoding
+            without explicit skeletal alignment, using the same small number of
+            training samples of unseen classes.
+          </p>
+        </div>
+
+        <div>
+          <h1>Our Contribution</h1>
+          <ol>
+            <li>
+              HAA4D, a human atomic action dataset where all 4D skeletons are
+              globally aligned. HAA4D complements existing prominent 3D+T human
+              action datasets such as NTU-RGB+D and Kinetics Skeleton 400. HAA4D
+              contains 3390 samples of human actions in the wild with 300
+              different kinds of activities. The samples for each human action
+              range from 2 to 20, each provided with RGB frames and their
+              corresponding 3D skeletons.
+            </li>
+            <li>
+              Introducing an alignment network for predicting orthographic
+              camera poses in the train/test samples, where all 4D skeletons are
+              aligned in the same camera space, each facing the negative
+              z-direction. This allows for better recognition results with a
+              smaller number of training samples compared to ST-GCN, Shift-GCN,
+              and SGN.
+            </li>
+            <li>
+              Introduce the first few-shot baseline for 4D human (atomic) action
+              recognition that produces results comparable to or better than
+              state-of-the-art techniques on unseen classes using a small number
+              of training samples.
+            </li>
+          </ol>
+        </div>
+
+        <div>
+          <p>
+            The 3D skeleton is<b>viewpoint invariant</b>: all train/test 3D skeletons
+            in HAA4D are registered by their respective orthographic camera pose
+            estimated using our global alignment model. Thus a single training
+            3D skeleton per class is sufficient, in stark contrast to the use of
+            2D RGB images or skeletons, where a large number of training data is
+            required, and uneven sampling is an issue. <b>Trained with as few as
+            one 3D+T or 4D burpee skeleton, the network can readily recognize
+            any normalized burpee action shot from any viewing angles</b>, including
+            those under the person, which are difficult to capture. As shown in
+            the figure below, we can use the predicted camera poses to rectify
+            views of the input 3D skeletons and bring them to the same
+            coordinate system (globally aligned space). This rectification
+            provides a <b>stronger correlation between each sample</b> and allows us to
+            utilize the explicit information, such as the coordinate of the
+            joints, directly for sequence matching and obtain a higher accuracy
+            in differentiate the action.
+          </p>
+        </div>
+        <!-- Boxes -->
+        <div class="thumbnails">
+          <div class="box">
+            <a href="dataset.html" class="image fit"
+              ><img src="images/dataset.png" alt=""
+            /></a>
+            <div class="inner">
+              <a href="dataset.html" class="button fit"
+                >Dataset</a
+              >
+            </div>
+          </div>
+
+          <div class="box">
+            <a href="annotation.html" class="image fit"
+              ><img src="images/annotation.png" alt=""
+            /></a>
+            <div class="inner">
+              <a
+                href="annotation.html"
+                class="button style2 fit"
+                data-poptrox="youtube,800x400"
+                >Annotation Tool</a
+              >
+            </div>
+          </div>
+
+          <div class="box">
+            <a href="others.html" class="image fit"
+              ><img src="images/others.png" alt=""
+            /></a>
+            <div class="inner">
+              <a
+                href="others.html"
+                class="button style3 fit"
+                data-poptrox="youtube,800x400"
+                >Others</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="inner">
+        <h2>Citation</h2>
+        <pre style="text-align: left; overflow: scroll">
+@misc{tseng2022haa4d,
+	title={HAA4D: Few-Shot Human Atomic Action Recognition via 3D Spatio-Temporal Skeletal Alignment}, 
+	author={Mu-Ruei Tseng and Abhishek Gupta and Chi-Keung Tang and Yu-Wing Tai},
+	year={2022},
+	eprint={2202.07308},
+	archivePrefix={arXiv},
+	primaryClass={cs.CV}
+}
+        </pre>
+
+        <ul class="icons">
+          <li>
+            <a href="#" class="icon fa-github"
+              ><span class="label">Twitter</span></a
+            >
+          </li>
+          <li>
+            <a href="#" class="icon fa-envelope"
+              ><span class="label">Email</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.poptrox.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
