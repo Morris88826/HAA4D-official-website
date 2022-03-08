@@ -13,13 +13,102 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/dataset.css" />
+
+    <script>
+      class Dataset {
+        name;
+        samples;
+        actions;
+        views;
+        modalities;
+        year;
+
+        constructor(name, samples, actions, views, modalities, year) {
+          this.name = name;
+          this.samples = samples;
+          this.actions = actions;
+          this.views = views;
+          this.modalities = modalities;
+          this.year = year;
+        }
+
+        getItems() {
+          return [
+            this.name,
+            this.samples,
+            this.actions,
+            this.views,
+            this.modalities,
+            this.year,
+          ];
+        }
+      }
+
+      let datasets = [
+        new Dataset("UWA3D Multiview II", 1075, 30, 5, "RGB+D+3DJoints", 2015),
+        new Dataset("NTU RGB+D", 56880, 60, 80, "RGB+D+IR+3DJoints", 2016),
+        new Dataset("SYSU 3DHOI", 480, 12, 1, "RGB+D+3DJoints", 2017),
+        new Dataset("Kinetics 400", 306245, 400, "-", "RGB", 2017),
+        new Dataset("NTU RGB+D 120", 120, 30, 155, "RGB+D+IR+3DJoints", 2019),
+        new Dataset("Kinetics-700-2020", 700, 30, "-", "RGB", 2020),
+        new Dataset("Ego4D", 3025, 110, "-", "	RGB+3DMeshes+Audio", 2021),
+        new Dataset("HAA4D", 3390, 300, "2/20", "RGB+3DJoints", 2021),
+      ];
+
+      function createDatasetTable() {
+        let table = document.createElement("table");
+        let thead = document.createElement("thead");
+        let tbody = document.createElement("tbody");
+        table.appendChild(thead);
+        table.appendChild(tbody);
+
+        document.getElementById("dataset").appendChild(table);
+
+        let _heads = [
+          "Name",
+          "Samples",
+          "Actions",
+          "Views",
+          "Modalities",
+          "Year",
+        ];
+
+        let heads = document.createElement("tr");
+        for (const element of _heads) {
+          let _data = document.createElement("td");
+          _data.innerHTML = element;
+          _data.style.fontWeight = "bold";
+          heads.appendChild(_data);
+          heads.style.backgroundColor = "white";
+          heads.style.color = "black";
+        }
+        thead.appendChild(heads);
+
+        let num_columns = heads.length;
+
+        for (const element of datasets) {
+          let row_content = element.getItems();
+          let row = document.createElement("tr");
+          for (const c of row_content) {
+            let _data = document.createElement("td");
+            _data.innerHTML = c;
+            row.appendChild(_data);
+            // row.style.backgroundColor = "lightgray"
+            // row.style.color = "black"
+          }
+
+          tbody.appendChild(row);
+        }
+        return;
+      }
+    </script>
   </head>
   <body id="top">
     <!-- Main -->
 
     <div id="main">
       <div class="inner">
-        <div style="margin-bottom: 2em;">
+        <div style="margin-bottom: 2em">
           <h1>HAA4D Dataset</h1>
           <p>
             HAA4D is a challenging human action recognition 3D+T dataset that is
@@ -41,25 +130,74 @@
             have twenty samples per class, while additional classes contain two
             examples per class.
           </p>
-          <div style="text-align: center;">
+          <div style="text-align: center">
             <img src="images/topology.png" alt="" style="width: 50%" />
           </div>
         </div>
 
-        <div style="margin-bottom: 2em;">
+        <div style="margin-bottom: 2em">
           <h2>1. Action Classes</h2>
           <h3>1.1 Primary Classes (155)</h3>
+          <div id="class_20"></div>
           <h3>1.2 Additional Classes (145)</h3>
+          <div id="class_2"></div>
+          <h3>1.3 Globally Aligned Skeletons</h3>
+
+          <h4>HAA4D (40)</h4>
+          <div id="class_global"></div>
+          <br />
+          <h4>NTU RGB+D (40)</h4>
+          <div id="class_global_ntu"></div>
         </div>
 
-        <div style="margin-bottom: 2em;">
+        <div style="margin-bottom: 2em">
           <h2>2. Dataset Details</h2>
           <h3>2.1 Comparison with other pubic datasets</h3>
+          <div id="dataset">
+            <script>
+              createDatasetTable();
+            </script>
+          </div>
+
           <h3>2.2 Dataset Summary</h3>
+          <table>
+            <tr style="background-color: white; color: black">
+              <td style="font-weight: bold">Classes</td>
+              <td style="font-weight: bold">Total Samples</td>
+              <td style="font-weight: bold">Globally Aligned Samples</td>
+              <td style="font-weight: bold">Total Frames</td>
+              <td style="font-weight: bold">Min Frames</td>
+              <td style="font-weight: bold">Max Frames</td>
+              <td style="font-weight: bold">Average Frames</td>
+              <td style="font-weight: bold">2 Examples</td>
+              <td style="font-weight: bold">20 Examples</td>
+              <td style="font-weight: bold">Person per Example</td>
+            </tr>
+            <tr>
+              <td>300</td>
+              <td>3390</td>
+              <td>400</td>
+              <td>212042</td>
+              <td>7</td>
+              <td>757</td>
+              <td>63</td>
+              <td>145 classes</td>
+              <td>155 classes</td>
+              <td>1</td>
+            </tr>
+          </table>
           <h3>2.3 Evaluation Benchmark</h3>
+          <p>
+            For actions with 20 examples per class, video indexes 0 to 9 are
+            used for training, while videos from 10 to 19 are used for testing.
+            We perform data augmentation on the first ten samples, and among
+            all, videos 8 and 9 are used for validation. For actions that
+            contain only two samples, the one with a smaller index serves as the
+            query, and the other serves as the support.
+          </p>
         </div>
 
-        <div style="margin-bottom: 2em;">
+        <div style="margin-bottom: 2em">
           <h2>3. Examples</h2>
           <p>
             Here we provide some examples in our HAA4D dataset. The image on the
@@ -149,6 +287,7 @@
       </div>
     </footer>
     <!-- Scripts -->
+    <script src="./assets/js/dataset.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrolly.min.js"></script>
     <script src="assets/js/jquery.poptrox.min.js"></script>
