@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!--
+	Full Motion by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+  <head>
+    <title>
+      HAA4D: Few-Shot Human Atomic Action Recognition via 3D Spatio-Temporal
+      Skeletal Alignment
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/dataset.css" />
+  </head>
+  <body id="top">
+    <!-- Main -->
+
+    <div id="main">
+      <div class="inner">
+        <div style="margin-bottom: 2em">
+          <h1>Downloads</h1>
+          <p>
+            Project github:
+            <a href="https://github.com/Morris88826/HAA4D">here</a>
+          </p>
+          <p><b>Paper</b> - <a href="images/paper.pdf">Download</a></p>
+          <div>
+            <b>HAA4D V1.0</b>
+            <br />
+            Directory tree structure
+            <p style="background: gray">
+              /dataset <br />
+              ├── video <br />
+              ├── raw <br />
+              ├── skeletons_2d <br />
+              │ ├── primary_classes <br />
+              │ ├── additional_classes <br />
+              ├── skeletons_3d <br />
+              │ ├── primary_classes <br />
+              │ ├── additional_classes <br />
+              ├── processed_data <br />
+              │ ├── globally_aligned_skeletons <br />
+              │ │ ├── haa4d <br />
+              │ │ ├── nturgb+d <br />
+              │ ├── normalized_skeletons_3d <br />
+              │ │ ├── primary_classes <br />
+              │ │ ├── additional_classes <br />
+              ├── info.json
+            </p>
+            <ul>
+              <li>
+                video: download from
+                <a href="https://www.cse.ust.hk/haa/">here</a>
+              </li>
+              <li>
+                skeletons 2d:
+                <ul>
+                  <li>primary classes: <a href="./dataset/skeletons_2d/primary_classes.zip">Download</a></li>
+                  <li>additional classes: Coming Soon</li>
+                </ul>
+              </li>
+              <li>
+                skeletons 3d:
+                <ul>
+                  <li>primary classes: <a href="./dataset/skeletons_3d/primary_classes.zip">Download</a></li>
+                  <li>additional classes: Coming Soon</li>
+                </ul>
+              </li>
+              <li>
+                globally aligned skeletons:
+                <ul>
+                  <li>haa4d: <a href="./dataset/processed_data/globally_aligned_skeletons/haa4d.zip">Download</a></li>
+                  <li>nturgb+d: Coming Soon</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <p>
+            <b>Detailed information of HAA4D</b> -
+            <a href="images/all_data.csv">Download</a>
+          </p>
+        </div>
+
+        <div style="margin-bottom: 2em">
+          <a
+            href="index.html"
+            class="button"
+            style="border-bottom: 0px; background: #9d7ed0"
+            >Back</a
+          >
+        </div>
+        <!-- Boxes -->
+        <div class="thumbnails">
+          <div class="box">
+            <a href="dataset.html" class="image fit"
+              ><img src="images/dataset.png" alt=""
+            /></a>
+            <div class="inner">
+              <a href="dataset.html" class="button fit">Dataset</a>
+            </div>
+          </div>
+
+          <div class="box">
+            <a href="annotation.html" class="image fit"
+              ><img src="images/annotation.png" alt=""
+            /></a>
+            <div class="inner">
+              <a
+                href="annotation.html"
+                class="button style2 fit"
+                data-poptrox="youtube,800x400"
+                >Annotation Tool</a
+              >
+            </div>
+          </div>
+
+          <div class="box">
+            <a href="others.html" class="image fit"
+              ><img src="images/others.png" alt=""
+            /></a>
+            <div class="inner">
+              <a href="others.html" class="button style4 fit">Others</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="inner">
+        <h2>Citation</h2>
+        <pre style="text-align: left; overflow: scroll">
+@misc{tseng2022haa4d,
+	title={HAA4D: Few-Shot Human Atomic Action Recognition via 3D Spatio-Temporal Skeletal Alignment}, 
+	author={Mu-Ruei Tseng and Abhishek Gupta and Chi-Keung Tang and Yu-Wing Tai},
+	year={2022},
+	eprint={2202.07308},
+	archivePrefix={arXiv},
+	primaryClass={cs.CV}
+}
+        </pre>
+
+        <ul class="icons">
+          <li>
+            <a href="#" class="icon fa-github"
+              ><span class="label">Twitter</span></a
+            >
+          </li>
+          <li>
+            <a href="#" class="icon fa-envelope"
+              ><span class="label">Email</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.poptrox.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

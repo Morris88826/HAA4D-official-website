@@ -13,7 +13,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/dataset.css" />
-
+    <script
+      src="https://kit.fontawesome.com/281e6fe2d2.js"
+      crossorigin="anonymous"
+    ></script>
     <script>
       class Dataset {
         name;
@@ -101,6 +104,21 @@
         }
         return;
       }
+
+      function expand(id) {
+        var x = document.getElementById(id + "_btn");
+        var table = document.getElementById(id);
+        if (x.className === "fa-solid fa-angle-down") {
+          //   x.innerHTML = "Swapped text!";
+          x.classList.remove("fa-angle-down");
+          x.classList.add("fa-angle-up");
+          table.style.display = null;
+        } else {
+          x.classList.remove("fa-angle-up");
+          x.classList.add("fa-angle-down");
+          table.style.display = "none";
+        }
+      }
     </script>
   </head>
   <body id="top">
@@ -113,7 +131,7 @@
           <p>
             HAA4D is a challenging human action recognition 3D+T dataset that is
             built on top of the HAA500 dataset. HAA500 is a curated video
-            dataset consisting of atomic hu-man action video clips, which
+            dataset consisting of atomic human action video clips, which
             provides diversified poseswith variation and examples closer to
             real-life activities. Similar to Kinetics, the original dataset
             provides solely in-the-wild RGB videos. However, instead of using
@@ -137,16 +155,44 @@
 
         <div style="margin-bottom: 2em">
           <h2>1. Action Classes</h2>
-          <h3>1.1 Primary Classes (155)</h3>
+          <h3>
+            1.1 Primary Classes (155)
+            <i
+              id="class_20_btn"
+              class="fa-solid fa-angle-up"
+              onclick="expand('class_20')"
+            ></i>
+          </h3>
           <div id="class_20"></div>
-          <h3>1.2 Additional Classes (145)</h3>
+          <h3>
+            1.2 Additional Classes (145)
+            <i
+              id="class_2_btn"
+              class="fa-solid fa-angle-up"
+              onclick="expand('class_2')"
+            ></i>
+          </h3>
           <div id="class_2"></div>
           <h3>1.3 Globally Aligned Skeletons</h3>
 
-          <h4>HAA4D (40)</h4>
+          <h4>
+            HAA4D (40)
+            <i
+              id="class_global_btn"
+              class="fa-solid fa-angle-up"
+              onclick="expand('class_global')"
+            ></i>
+          </h4>
           <div id="class_global"></div>
           <br />
-          <h4>NTU RGB+D (40)</h4>
+          <h4>
+            NTU RGB+D (40)
+            <i
+              id="class_global_ntu_btn"
+              class="fa-solid fa-angle-up"
+              onclick="expand('class_global_ntu')"
+            ></i>
+          </h4>
           <div id="class_global_ntu"></div>
         </div>
 
@@ -240,18 +286,21 @@
               >
             </div>
           </div>
+          <div class="box">
+            <a href="download.html" class="image fit"
+              ><img src="images/download.png" alt=""
+            /></a>
+            <div class="inner">
+              <a href="download.html" class="button style3 fit">Downloads</a>
+            </div>
+          </div>
 
           <div class="box">
             <a href="others.html" class="image fit"
               ><img src="images/others.png" alt=""
             /></a>
             <div class="inner">
-              <a
-                href="others.html"
-                class="button style3 fit"
-                data-poptrox="youtube,800x400"
-                >Others</a
-              >
+              <a href="others.html" class="button style4 fit">Others</a>
             </div>
           </div>
         </div>
